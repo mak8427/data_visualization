@@ -22,11 +22,9 @@ let
   ]);
 
 in pkgs.mkShell rec {
-  venvDir = "./.venv";
-
   buildInputs = [ pythonWithPackages ];
 
   shellHook = ''
-    jupyter notebook --ip=127.0.0.1 --port 8888 --no-browser --allow-root --NotebookApp.token=\'\' --NotebookApp.password=\'\'
+    jupyter notebook --ip=127.0.0.1 --port 8888 --no-browser --allow-root
   '';
 }
