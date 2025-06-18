@@ -8,6 +8,7 @@ let
     jupyter
     ipython
     ipykernel
+    ipympl
 
     setuptools
     virtualenv
@@ -25,6 +26,6 @@ in pkgs.mkShell rec {
   buildInputs = [ pythonWithPackages ];
 
   shellHook = ''
-    jupyter notebook --ip=127.0.0.1 --port 8888 --no-browser --allow-root
+    jupyter notebook --ip=127.0.0.1 --port 8888 --allow-root
   '';
 }
