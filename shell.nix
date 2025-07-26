@@ -6,24 +6,25 @@ let
   python = pkgs.python311;
   pythonWithPackages = python.withPackages (ps: with ps; [
     jupyter
+
     ipython
     ipykernel
     ipympl
 
-    setuptools
-    virtualenv
-    pip
     pyqt5
 
     numpy
     scipy
+    pandas
+    scikit-learn
+
+    seaborn
     matplotlib
     plotly
-    pandas
   ]);
 
 in pkgs.mkShell rec {
-  buildInputs = [ pythonWithPackages ];
+  buildInputs = [ pkgs.ffmpeg pythonWithPackages ];
 
   shellHook = ''
     jupyter notebook --ip=127.0.0.1 --port 8888 --allow-root
